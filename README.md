@@ -917,7 +917,7 @@ de desplegado y mantenimiento de los modelos ya puestos en producción y asegura
 <figcaption></figcaption></center>
 </figure>
 
-A lo anterior, de nuevo en la plataforma de amazon, se podría acudir a [Amazon Sagemaker] (https://github.com/aws-solutions/mlops-workload-orchestrator) que es un servicio totalmente administrado de un extremo a otro en la nube 
+A lo anterior, de nuevo en la plataforma de amazon, se podría acudir a [Amazon Sagemaker](https://github.com/aws-solutions/mlops-workload-orchestrator) que es un servicio totalmente administrado de un extremo a otro en la nube 
 de AWS para flujos de trabajo de aprendizaje automático. Se adapta a diferentes tipos de servicios de creación, capacitación e implementación de modelos, 
 siendo el caso de uso principal el desarrollo de soluciones de ML. 
 
