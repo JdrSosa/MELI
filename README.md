@@ -678,7 +678,7 @@ Pero su probabilidad de ser el mejor ("prob_being_best") es bastante diferente:
 1. variant 6787: 74,255%
 2. variant 6786: 25,745%
 
-Siendo mucho mayor para la variante 6787 la cual se consagra como la variante con mayor probabilidad de finalizar en compra para este experimento.
+Siendo mucho mayor para la variante 6787 la cual se consagra como la variante con mayor probabilidad de finalizar en compra para este experimento con una amplia diferencia.
 
 Una vez revisado lo anterior, vamos a crear un diccionario que nos permita almacecar los resultados del test: conv_test.evaluate() a cada uno de los experimentos del dataframe. Lo anterior lo vamos a complementar con una serie de iteraciones que nos permitan calcular la información por fecha, experimento y variante. Con ello podremos realizar comparaciones del tipo:
 
@@ -897,7 +897,7 @@ Es importante tener en cuenta que mientras la celda anterior se este ejecutando 
 <figcaption></figcaption>
 </figure>
 
-
+Al finalizar las consultas de la API se debe detener la ejecución de la celda donde se ha creado previamente.
 
 ## **Consideraciones y Próximos pasos**
 
