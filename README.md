@@ -899,27 +899,29 @@ Es importante tener en cuenta que mientras la celda anterior se este ejecutando 
 
 
 
-## **Próximos pasos**
+## **Consideraciones y Próximos pasos**
 
-Para trabajar con volumenes de datos mas grandes se pueden trabajar directamente el servidores cloud como Amazon Web Services, que permite tener todo integrado en
-su plataforma. Allí encontraremos soluciones en cuanto a maquinas viruales de gran capacidad para procesamiento de datos 'Amazon EC2' y tambien de almacenamiento
-como es el caso de 'Amazon S3'. 
+A partir de los datos suministrados se realizó un preprocesado que incluyo:
+
+1. Agragar variables de fecha a partir de la marca de tiempo para ordenar la cadena de navegación y agrupar por YYYY-MM-DD.
+2. Convertir a diccionario la variable 'experiments'.
+3. Convertir a columas los items del diccionario para separar el 'experiment' y la 'variant_id'.
+4. Separar la variable 'experiment_name' para obtener el 'path' y el 'experiment_name' propiamente realizado.
+5. Agregar la marca con 1s a la target, esto es, 1 para todos los usuarios que hayan realizado compra y 0s para los que no.
+6. Agregar la marca de conversión a todo el dataframe cruzando por 'user_id' e 'item_id' para ver toda la "cadena de navegación".
+7. Quedarnos con la minima fecha en que el ususario se enfrento a cada experimento en su "cadena de navegación".
+
+Se optó por tomar para cada posible "cadena de navegación" la minima fecha en la que el cliente se enfrento a cada experimento, de tal modo que solo se tiene para toda la cadena una aparición y no hay duplicidad en la información. Por otra parte, la llave que se utilizó para determinar si hubo o no conversión en la cadena fue el 'user_id' junto al 'item_id', de tal forma que se tienen todos los posibles experimentos con sus correspondientes variantes para cada evento y se puede concluir si eso terminó o no en compra.
+
+Para calcular la tasa de conversión se agruparon todos los posibles experimentos con sus variantes por fecha y de calculó la cantidad de ususarios que vieron el experiento asi como la cantidad de ususarios que terminaron en compra, de este modo la tasa de conversión era la cantidad de compras sobre la cantidad de veces que se vió el experimento.
+
+Luego, para determinar si efectivamente o no la variante tenia una mayor probabilidad de exito, se utilizo un test binario con enfoque bayesiano apoyandonos en el paquete "[bayesian_testing](https://pypi.org/project/bayesian-testing/), que nos permite utilizar todo el dataset y comparar de todas las posibles variantes cual tiene la mayor probabilidad de ser la mejor, y evidenciamos que no en todos los casos la variante que tiene una mayor tasa de conversión es la que tiene una mayor probabilidad de ser la mejor dentro del experimento.
+
+En cuanto a la creación de la API se utilizo el paquete [flask](https://flask.palletsprojects.com/en/2.2.x/api/), que nos permite definir la estructura de salida en el formato json que se solicitó y programar los parametros que se requieren para la consulta a traves de la URL con el metodo GET.
+
+Como próximos pasos, para trabajar con volumenes de datos mas grandes se pueden trabajar directamente el servidores cloud como [Amazon Web Services](https://aws.amazon.com/es/?nc2=h_lg), que permite tener todo integrado en su plataforma. Allí encontraremos soluciones en cuanto a maquinas viruales de gran capacidad para procesamiento de datos 'Amazon EC2' y tambien de almacenamiento como es el caso de 'Amazon S3'. 
 
 Adicionalmente se podría pensar en un enfoque MLOps que es la aplicación de las prácticas DevOps en el desarrollo y puesta en producción de los modelos de 
-machine learning, y su nombre, como ocurría con el término anterior, viene de la combinación de los términos Machine Learning y Operations. 
-La aplicación de las prácticas MLOps trata de agilizar el proceso de experimentación y desarrollo de modelos, facilitar y hacer más eficiente el proceso 
-de desplegado y mantenimiento de los modelos ya puestos en producción y asegurar la calidad de los resultados obtenidos mediante estos modelos.
+machine learning, este enfoque viene de la combinación de los términos Machine Learning y Operations. La aplicación de las prácticas MLOps trata de agilizar el proceso de experimentación y desarrollo de modelos, facilitar y hacer más eficiente el proceso de desplegado y mantenimiento de los modelos ya puestos en producción y asegurar la calidad de los resultados obtenidos mediante estos modelos.
 
-<!-- script html for image -->
-<figure>
-<center>
-<img src='https://www.zylk.net/documents/portlet_file_entry/20147/MLOps-Neal-Analytics.png/946d26de-d0f9-5491-f2d7-75e403771813?&imagePreview=1' width="600" height="250" />
-<figcaption></figcaption></center>
-</figure>
-
-A lo anterior, de nuevo en la plataforma de amazon, se podría acudir a [Amazon Sagemaker](https://github.com/aws-solutions/mlops-workload-orchestrator) que es un servicio totalmente administrado de un extremo a otro en la nube 
-de AWS para flujos de trabajo de aprendizaje automático. Se adapta a diferentes tipos de servicios de creación, capacitación e implementación de modelos, 
-siendo el caso de uso principal el desarrollo de soluciones de ML. 
-
-
-
+A lo anterior, de nuevo en la plataforma de amazon, se podría acudir a [Amazon Sagemaker](https://github.com/aws-solutions/mlops-workload-orchestrator) que es un servicio totalmente administrado de un extremo a otro en la nube de AWS para flujos de trabajo de aprendizaje automático. Se adapta a diferentes tipos de servicios de creación, capacitación e implementación de modelos, siendo el caso de uso principal el desarrollo de soluciones de ML. 
