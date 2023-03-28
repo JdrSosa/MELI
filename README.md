@@ -28,8 +28,6 @@ Dentro del repositorio se encuentran los siguientes archivos:
 5. **Insomnia - sa-on-vip.png:** resultados de consultar la API para el experimento 'sa-on-vip'.
 6. **Insomnia - viewItemPageMigrationDesktopReviewsNoTabs:** resultados de consultar la API para el experimento 'viewItemPageMigrationDesktopReviewsNoTabs'.
 
-Para darl solución a la actividad, se realizarán los inicialmente un preprocesado de los datos para hacer todos los arreglos correspondientes que permitan 
-dal solución al caso de negocio.
 
 ## **Preparación del entorno**
 
@@ -374,7 +372,9 @@ df_4[(df_4['user_id']==466) & (df_4['item_id']==789004239.0)]
 
 
 
-**Enhorabuena**, el dataframe anterior tiene toda la información como la necesitamos para poder trabajarla.
+Enhorabuena! 
+
+El dataframe anterior tiene toda la información como la necesitamos para poder trabajarla.
 
 
 ```python
@@ -678,7 +678,7 @@ Pero su probabilidad de ser el mejor ("prob_being_best") es bastante diferente:
 1. variant 6787: 74,255%
 2. variant 6786: 25,745%
 
-Siendo mucho mayor para la variante 6786 que para este experimentoo se consagraría como la variable con mayor probabilidad de finalizar en compra.
+Siendo mucho mayor para la variante 6787 la cual se consagra como la variante con mayor probabilidad de finalizar en compra para este experimento.
 
 Una vez revisado lo anterior, vamos a crear un diccionario que nos permita almacecar los resultados del test: conv_test.evaluate() a cada uno de los experimentos del dataframe. Lo anterior lo vamos a complementar con una serie de iteraciones que nos permitan calcular la información por fecha, experimento y variante. Con ello podremos realizar comparaciones del tipo:
 
