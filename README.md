@@ -24,9 +24,9 @@ Dentro del repositorio se encuentran los siguientes archivos:
 1. **AB_Desafío_MELI.ipynb:** notebook con el desarrollo de la actividad debidamente documentado incluyendo hipotesis y asunciones en el desarrollo del ejercicio.
 2. **Ejercicio AB Challenge Experimentos Melidata - DS.pdf:** descripción del caso de negocio planteado.
 3. **Experimentos.csv:** dataset con los datos suministrados.
-4. **Insomnia - abc.png:** resultados de consultar la API para el experimento 'abc'.
-5. **Insomnia - sa-on-vip.png:** resultados de consultar la API para el experimento 'sa-on-vip'.
-6. **Insomnia - viewItemPageMigrationDesktopReviewsNoTabs:** resultados de consultar la API para el experimento 'viewItemPageMigrationDesktopReviewsNoTabs'.
+4. **Insomnia - abc.png:** imagen con resultados de consultar la API para el experimento 'abc'.
+5. **Insomnia - sa-on-vip.png:** imagen con resultados de consultar la API para el experimento 'sa-on-vip'.
+6. **Insomnia - viewItemPageMigrationDesktopReviewsNoTabs:** imagen con resultados de consultar la API para el experimento 'viewItemPageMigrationDesktopReviewsNoTabs'.
 
 
 ## **Preparación del entorno**
